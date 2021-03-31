@@ -1,5 +1,5 @@
 # Blender MTL File: 'untitled.blend'
-# Material Count: 7
+# Material Count: 8
 
 newmtl Material.001
 Ns 0.000000
@@ -61,11 +61,19 @@ Ni 1.450000
 d 1.000000
 illum 2
 
+newmtl None
+Ns 500
+Ka 0.8 0.8 0.8
+Kd 0.8 0.8 0.8
+Ks 0.8 0.8 0.8
+d 1
+illum 2
+
 newmtl default
 Ns 0.000000
-Ka 0.684091 0.684091 0.684091
-Kd 0.005702 0.467455 1.000000
-Ks 0.806818 0.806818 0.806818
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
 Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
