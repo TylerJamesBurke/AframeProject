@@ -1,75 +1,242 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component/dist/aframe-text-geometry-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <audio
+      id="windsound"
+      src="https://cdn.glitch.com/5e3bfb6e-46e6-493c-a078-97b0fe45358e%2Fwind01.mp3?v=1615927873544"
+    ></audio>
 
-<head>
-  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  </head>  
+    <audio
+      id="scifi"
+      src="https://cdn.glitch.com/0b387bfb-36b1-4104-b3a5-6ff28e3e7b4f%2FSci-fi%20Pulse%20Loop%20(online-audio-converter.com).mp3?v=1617834140215"
+    ></audio>
+  </head>
 
+  <body>
+    <a-scene renderer="physicallyCorrectLights:true">
+      
+      
+      
+      
+      
+      <!--assets-->
+      
+      
+      
+      
+      
+      <a-assets>
+        <img
+          id="skytexture"
+          src="https://cdn.glitch.com/5e3bfb6e-46e6-493c-a078-97b0fe45358e%2FMaterial.001_baseColor.png?v=1617222868646"
+        />
+        <a-asset-item
+          id="pipesobj"
+          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWlandcity.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="pipesmtl"
+          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWlandcity.mtl"
+        ></a-asset-item>
+        <a-asset-item
+          id="smallcityobj"
+          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/smallcity.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="smallcitymtl"
+          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/smallcity.mtl"
+        ></a-asset-item>
 
+        <a-asset-item
+          id="medcityobj"
+          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWmediumlandcity.obj"
+        ></a-asset-item>
 
-<body>
-<a-scene renderer="physicallyCorrectLights:true">
-   <a-assets>
-    <img id="skytexture" src="https://cdn.glitch.com/5e3bfb6e-46e6-493c-a078-97b0fe45358e%2FMaterial.001_baseColor.png?v=1617222868646"/>
-    <a-asset-item id="pipesobj" src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/skycitytest.obj"></a-asset-item>
-    <a-asset-item id="pipesmtl" src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/skycitytest.mtl"></a-asset-item> 
-    <a-asset-item id="smallcityobj" src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/smallcity.obj"></a-asset-item>
-    <a-asset-item id="smallcitymtl" src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/smallcity.mtl"></a-asset-item> 
-    <!--<a-asset-item id="pipesobj" src="https://1070.plesk.digitalmediauconn.org/tjb17003/floatingland.obj"></a-asset-item>
-    <a-asset-item id="pipesmtl" src="https://1070.plesk.digitalmediauconn.org/tjb17003/floatingland.mtl"></a-asset-item>--> 
-    
-   <!--<a-asset-item id="city" src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/untitled.gltf"></a-asset-item>
-    <audio id="windsound" src="https://cdn.glitch.com/5e3bfb6e-46e6-493c-a078-97b0fe45358e%2Fwind01.mp3?v=1615927873544"></audio>-->
-  </a-assets>
-  
- <!-- city 
-  <a-entity position="0 -4 -40" gltf-model="#city"></a-entity>-->
-  
-  
-  
+        <a-asset-item
+          id="medcitymtl"
+          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWmediumlandcity.mtl"
+        ></a-asset-item>
+      </a-assets>
 
-  
-  
-  
-  
-<!-- sky  -->
-<a-sky src="#skytexture"></a-sky> 
-  
-  
-  
-  
-<!-- land-->
+      
+      
+      
+      
+      <!--text-->
+      
+      
+      
+      
+      
+      <a-entity
+        position="-12 7 8"
+        rotation="0 120 0"
+        scale="8 8 8"
+        text="value: Year: 2550
+              
+              Earth has exceded it carrying capacity for life, 20 billion individuals current reside on the planet.
+              
+              Natural landscapes faded away after centuries of human disruption, making life on the ground no longer inhabitable.
+                
+              Humans spent decades engineering massive sky cities to escape the dying landscapes of earth."
+      ></a-entity>
 
+      <!-- <a-entity
+        position="-10 10 8"
+        rotation="0 120 0"
+        scale="10 10 10"
+        text="
+          bevelEnabled: true;
+          bevelSize:20;
+          bevelThickness: 20;
+          value: Year: 2550 ">
+      </a-entity>-->
 
+      <!-- sky  -->
+      <a-sky src="#skytexture" position="0 -125 0"> </a-sky>
 
+      <!--dust
+      <a-entity position="0 2.25 -15" particle-system="preset: dust"></a-entity>
+      <a-entity
+        id="dust"
+        particle-system="preset: dust; color: #b0ffef, #f542d1; particleCount: 10000"
+      ></a-entity>-->
+      
+      
+      
+      
+      
+      
+      
+      
+      
 
-<a-entity id="skycity" position="0 0 -2.2" scale="5 5 5" rotation="0 -27 0" obj-model="obj: #pipesobj; mtl: #pipesmtl">
-  
-</a-entity> 
+      <!-- land citys-->
 
-<a-entity id="skycity2" position="0 -3 22.2" scale="5 5 5" rotation="0 -20.3 0" obj-model="obj: #pipesobj; mtl: #pipesmtl">
-  
-</a-entity> 
-<a-entity id="smallcity" position="25 -1 -10.2" scale="5 5 5" rotation="0 15 -1" obj-model="obj: #smallcityobj; mtl: #smallcitymtl">
-  
-</a-entity>
-<a-entity id="smallcity2" position="-28 -1 -0.3" scale="6 6 6" rotation="0 -34 -1" obj-model="obj: #smallcityobj; mtl: #smallcitymtl">
-  
-</a-entity>
-<!-- sound
-<a-entity sound="src:#windsound; autoplay: true"></a-entity>-->
-  
+      
+      
+      
+      
+      
+      
+      <a-entity
+        id="skycity"
+        position="2 -1 -1"
+        scale="12 12 12"
+        rotation="0 -27 0"
+        obj-model="obj: #pipesobj; mtl: #pipesmtl"
+        animation__position="property: object3D.position.y; to: -2;  dir: alternate; dur: 7700; loop:true "
+      >
+      </a-entity>
 
+      <a-entity
+        id="skycity2"
+        position="-2 -2 20"
+        scale="10 10 10"
+        rotation="0 -20.3 0"
+        obj-model="obj: #pipesobj; mtl: #pipesmtl"
+        animation__position="property: object3D.position.y; to: -5.5; dir: alternate; dur: 24700; loop: true"
+      >
+      </a-entity>
 
-  
-<a-camera position="-3.5 4 7" scale="4 4 4" rotation="-8.2 4 -1.25">
-  
-</a-camera>
+      <a-entity
+        id="mediumcity"
+        position="10 -2.5 12"
+        scale="8 8 8"
+        rotation="0 -265.3 0"
+        obj-model="obj: #medcityobj; mtl: #medcitymtl"
+        animation__position="property: object3D.position.y; to: -3.5; dir: alternate; dur: 5700; loop: true"
+      >
+      </a-entity>
 
-<a-entity light="color: #f6f6d5; intensity: 5.71; angle:49;" position="5.5 11.836 15" scale="2.3 1.2 2.1" ></a-entity>
-<a-entity light=" type:hemisphere; color: #90b4fc; intensity: 2" position="-22 -20 15"></a-entity>
-<a-entity light=" type:hemisphere; color: #fff2b3; groundColor:#3058e8; intensity: 1.5" position=".06 -.06 .07" rotation="43 -36 76" scale="0.435 0.373 0.435"></a-entity>
-<!--<a-entity light="type:point;
+      <a-entity
+        id="smallcity"
+        position="17 -0.8 2.2"
+        scale="5 5 5"
+        rotation="0 15 -1"
+        obj-model="obj: #smallcityobj; mtl: #smallcitymtl"
+        animation__position="property: object3D.position.y; to: .8; dir: alternate; dur: 6700; loop: true"
+      >
+      </a-entity>
+      <a-entity
+        id="smallcity2"
+        position="-28 -1 -0.3"
+        scale="6 6 6"
+        rotation="0 -34 -1"
+        obj-model="obj: #smallcityobj; mtl: #smallcitymtl"
+        animation__position="property: object3D.position.y; to: .2; dir: alternate; dur: 5700; loop: true"
+      >
+      </a-entity>
+
+      
+      
+      
+      
+      
+      
+      
+      
+      <!-- sound-->
+      
+      
+      
+      
+      <a-entity
+        sound="src:#windsound; volume: 0.08; autoplay: true; loop: true"
+      ></a-entity>
+      <a-entity
+        sound="src:#scifi; volume: 0.2; autoplay: true; loop: true"
+      ></a-entity>
+      
+      
+      
+      
+      
+      <!-- camera-->
+      
+      
+      
+      
+      <a-camera
+        wasd-controls-enabled="true"
+        look-controls="reverseMouseDrag:true"
+        position="-2.5 4 6"
+        scale="4 4 4"
+        rotation="43 -36 76"
+      >
+      </a-camera>
+      
+      
+      
+      
+      
+      
+     <!--lighting-->
+      
+      
+      
+      
+      
+      <a-entity
+        light="color: #8bacff; intensity: 5.71; angle:49;"
+        position="5.5 11.836 15"
+        scale="2.3 1.2 2.1"
+      ></a-entity>
+      <a-entity
+        light=" type:hemisphere; color: #90b4fc; intensity: 2"
+        position="-22 -20 15"
+      ></a-entity>
+      <a-entity
+        light=" type:hemisphere; color: #fff2b3; groundColor:#3058e8; intensity: 1.5"
+        position=".06 -.06 .07"
+        rotation="43 -36 76"
+        scale="0.435 0.373 0.435"
+      ></a-entity>
+      <!--<a-entity light="type:point;
           intensity: .8;
           distance:10;
           castshadow:true"
@@ -82,8 +249,6 @@
     dur="5000" 
     easing="linear">
   </a-animation>-->
-
-
-</a-scene>  
-</body>
+    </a-scene>
+  </body>
 </html>
