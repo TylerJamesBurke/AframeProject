@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- https://www.npmjs.com/package/aframe-curve-component -->
+    <script src="//rawgit.com/protyze/aframe-curve-component/master/dist/aframe-curve-component.min.js"></script>
+
+    <!-- https://www.npmjs.com/package/aframe-alongpath-component -->
+    <script src="//rawgit.com/protyze/aframe-alongpath-component/master/dist/aframe-alongpath-component.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <script src="https://unpkg.com/aframe-text-geometry-component/dist/aframe-text-geometry-component.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <audio
       id="windsound"
       src="https://cdn.glitch.com/5e3bfb6e-46e6-493c-a078-97b0fe45358e%2Fwind01.mp3?v=1615927873544"
@@ -17,18 +22,11 @@
   </head>
 
   <body>
-    <a-scene renderer="physicallyCorrectLights:true">
-      
-      
-      
-      
-      
+    <a-scene renderer="physicallyCorrectLights:true" shadow="autoUpdate: true">
+      <a-entity position="0 2.25 -15" particle-system="preset: dust"></a-entity>
+
       <!--assets-->
-      
-      
-      
-      
-      
+
       <a-assets>
         <img
           id="skytexture"
@@ -42,8 +40,7 @@
           id="pipesmtl"
           src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWextralargelandcity.mtl"
         ></a-asset-item>
-        
-        
+
         <a-asset-item
           id="mediumobj"
           src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWlandcity.obj"
@@ -70,18 +67,20 @@
           id="medcitymtl"
           src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWmediumlandcity.mtl"
         ></a-asset-item>
+
+        <a-asset-item
+          id="shipobj"
+          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/spaceships.obj"
+        ></a-asset-item>
+
+        <a-asset-item
+          id="shipmtl"
+          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/spaceships.mtl"
+        ></a-asset-item>
       </a-assets>
 
-      
-      
-      
-      
       <!--text-->
-      
-      
-      
-      
-      
+
       <a-entity
         position="-12 7 8"
         rotation="0 120 0"
@@ -110,107 +109,116 @@
       <a-sky src="#skytexture" position="0 -125 0"> </a-sky>
 
       <!--dust
+
+
       <a-entity position="0 2.25 -15" particle-system="preset: dust"></a-entity>
       <a-entity
         id="dust"
         particle-system="preset: dust; color: #b0ffef, #f542d1; particleCount: 10000"
       ></a-entity>-->
+
+      <!--ship path
+
+
+      <a-curve id="track1">
+        <a-curve-point position="-2 2 -3"></a-curve-point>
+        <a-curve-point position="0 1 -3"></a-curve-point>
+      alongpath="curve: #track1; loop: true"
+      </a-curve>-->
       
       
-      
-      
-      
-      
-      
-      
-      
+
+      <!--ship-->
+
+      <a-entity
+        id="ship"
+        shadow="receive: true"
+        position="-10.5 2 -4.6"
+        scale="0.180 0.18 0.18"
+        rotation="0 0 0"
+        animation="property: rotation; to: 0 360 0; dir: alternate; dur:12000; easing:linear;loop:true"
+        obj-model="obj: #shipobj; mtl: #shipmtl"
+        animation__position="property: object3D.position.y; to: 20;  dir: alternate; dur: 17700; loop:true "
+      >
+      </a-entity>
 
       <!-- land citys-->
 
-      
-      
-      
-      
-      
-      
       <a-entity
         id="skycity"
-        position="7 -5 -8"
+        shadow="receive: true"
+        position="7 -4 -10"
         scale="12 12 12"
         rotation="0 -47 0"
         obj-model="obj: #pipesobj; mtl: #pipesmtl"
-        animation__position="property: object3D.position.y; to: -3.5;  dir: alternate; dur: 7700; loop:true "
+        animation__position="property: object3D.position.y; to: -6.5;  dir: alternate; dur: 7700; loop:true "
+        animation="property: rotation; to: 0 360 0; dir: alternate; dur:195000; easing:linear;loop:true"
       >
       </a-entity>
 
       <a-entity
         id="skycity2"
-        position="-2 4 20"
+        shadow="receive: true"
+        position="10 -1 30"
         scale="10 10 10"
-        rotation="0 -20.3 0"
+        rotation="0 -120.3 0"
         obj-model="obj: #mediumobj; mtl: #mediummtl"
-        animation__position="property: object3D.position.y; to: -3.5; dir: alternate; dur: 24700; loop: true"
+        animation__position="property: object3D.position.y; to: -5.5; dir: alternate; dur: 24700; loop: true"
+        animation="property: rotation; to: 0 360 0; dir: alternate; dur:195000; easing:linear;loop:true"
       >
       </a-entity>
 
       <a-entity
         id="mediumcity"
-        position="3 -2.5 20"
+        shadow="receive: true"
+        position="-10 -2.5 30"
         scale="8 8 8"
         rotation="0 -265.3 0"
         obj-model="obj: #medcityobj; mtl: #medcitymtl"
-        animation__position="property: object3D.position.y; to: 3.5; dir: alternate; dur: 15700; loop: true"
-      >
+        animation__position="property: object3D.position.y; to: 3.5; dir: alternate; dur: 17700; loop: true"
+      animation="property: rotation; to: 0 360 0; dir: alternate; dur:195000; easing:linear;loop:true"
+                >
       </a-entity>
 
       <a-entity
         id="smallcity"
+        shadow="receive: true"
         position="17 -0.8 2.2"
         scale="5 5 5"
         rotation="0 15 -1"
         obj-model="obj: #smallcityobj; mtl: #smallcitymtl"
-        animation__position="property: object3D.position.y; to: .8; dir: alternate; dur: 6700; loop: true"
+        animation__position="property: object3D.position.y; to: 1.8; dir: alternate; dur: 6700; loop: true"
+        animation="property: rotation; to: 0 360 0; dir: alternate; dur:195000; easing:linear;loop:true"
       >
       </a-entity>
       <a-entity
         id="smallcity2"
+        shadow="receive: true"
         position="-28 -1 -0.3"
         scale="6 6 6"
         rotation="0 -34 -1"
         obj-model="obj: #smallcityobj; mtl: #smallcitymtl"
         animation__position="property: object3D.position.y; to: .2; dir: alternate; dur: 5700; loop: true"
-      >
+        animation="property: rotation; to: 0 360 0; dir: alternate; dur:195000; easing:linear;loop:true"
+                >
       </a-entity>
 
-      
-      
-      <a-entity position="0 2.25 -15" particle-system="preset: dust; particleCount: 10000"></a-entity>
-      
-      
-      
-      
-      
+      <a-entity
+        position="0 23 0"
+        particle-system="preset: dust; particleCount: 550; opacity: 0.3; size:1; randomize: true"
+      ></a-entity>
+
       <!-- sound-->
-      
-      
-      
-      
+
       <a-entity
         sound="src:#windsound; volume: 0.08; autoplay: true; loop: true"
       ></a-entity>
       <a-entity
         sound="src:#scifi; volume: 0.2; autoplay: true; loop: true"
       ></a-entity>
-      
-      
-      
-      
-      
+
       <!-- camera-->
-      
-      
-      
-      
+
       <a-camera
         wasd-controls-enabled="true"
         look-controls="reverseMouseDrag:true"
@@ -219,39 +227,32 @@
         rotation="43 -36 76"
       >
       </a-camera>
-      
-      
-      
-      
-      
-      
-     <!--lighting-->
-      
-      
+
+      <!--lighting-->
+
       <a-entity
-        light="color: #8bacff; intensity: 3.71; angle:-100;"
+        light="color: #8bacff; castShadow:true;intensity: 3.71; angle:-100;"
         position="-20 14.836 -21"
         scale="2.3 1.2 2.1"
       ></a-entity>
-      
-       <a-entity
-        light="color: #8bacff; intensity: 4.71; angle:-100;"
+
+      <a-entity
+        light="color: #8bacff; castShadow:true; intensity: 4.71; angle:-100;"
         position="6 10 -12"
         scale="2.3 1.2 2.1"
         rotation="0 175 0"
-          
       ></a-entity>
       <a-entity
-        light="color: #8bacff; intensity: 5.71; angle:49;"
+        light="color: #8bacff; castShadow:true; intensity: 5.71; angle:49;"
         position="5.5 11.836 15"
         scale="2.3 1.2 2.1"
       ></a-entity>
       <a-entity
-        light=" type:hemisphere; color: #90b4fc; intensity: 2"
+        light=" type:hemisphere; color: #90b4fc; castShadow:true; intensity: 2"
         position="-22 -20 15"
       ></a-entity>
       <a-entity
-        light=" type:hemisphere; color: #fff2b3; groundColor:#3058e8; intensity: 1.5"
+        light=" type:hemisphere; color: #fff2b3; groundColor:#3058e8; castShadow:true; intensity: 1.5"
         position=".06 -.06 .07"
         rotation="43 -36 76"
         scale="0.435 0.373 0.435"
