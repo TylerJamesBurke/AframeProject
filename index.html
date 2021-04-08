@@ -4,7 +4,7 @@
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <script src="https://unpkg.com/aframe-text-geometry-component/dist/aframe-text-geometry-component.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <audio
       id="windsound"
       src="https://cdn.glitch.com/5e3bfb6e-46e6-493c-a078-97b0fe45358e%2Fwind01.mp3?v=1615927873544"
@@ -36,10 +36,20 @@
         />
         <a-asset-item
           id="pipesobj"
-          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWlandcity.obj"
+          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWextralargelandcity.obj"
         ></a-asset-item>
         <a-asset-item
           id="pipesmtl"
+          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWextralargelandcity.mtl"
+        ></a-asset-item>
+        
+        
+        <a-asset-item
+          id="mediumobj"
+          src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWlandcity.obj"
+        ></a-asset-item>
+        <a-asset-item
+          id="mediummtl"
           src="https://raw.githubusercontent.com/TylerJamesBurke/AframeProject/main/Assets/land/NEWlandcity.mtl"
         ></a-asset-item>
         <a-asset-item
@@ -125,31 +135,31 @@
       
       <a-entity
         id="skycity"
-        position="2 -1 -1"
+        position="7 -5 -8"
         scale="12 12 12"
-        rotation="0 -27 0"
+        rotation="0 -47 0"
         obj-model="obj: #pipesobj; mtl: #pipesmtl"
-        animation__position="property: object3D.position.y; to: -2;  dir: alternate; dur: 7700; loop:true "
+        animation__position="property: object3D.position.y; to: -3.5;  dir: alternate; dur: 7700; loop:true "
       >
       </a-entity>
 
       <a-entity
         id="skycity2"
-        position="-2 -2 20"
+        position="-2 4 20"
         scale="10 10 10"
         rotation="0 -20.3 0"
-        obj-model="obj: #pipesobj; mtl: #pipesmtl"
-        animation__position="property: object3D.position.y; to: -5.5; dir: alternate; dur: 24700; loop: true"
+        obj-model="obj: #mediumobj; mtl: #mediummtl"
+        animation__position="property: object3D.position.y; to: -3.5; dir: alternate; dur: 24700; loop: true"
       >
       </a-entity>
 
       <a-entity
         id="mediumcity"
-        position="10 -2.5 12"
+        position="3 -2.5 20"
         scale="8 8 8"
         rotation="0 -265.3 0"
         obj-model="obj: #medcityobj; mtl: #medcitymtl"
-        animation__position="property: object3D.position.y; to: -3.5; dir: alternate; dur: 5700; loop: true"
+        animation__position="property: object3D.position.y; to: 3.5; dir: alternate; dur: 15700; loop: true"
       >
       </a-entity>
 
@@ -174,7 +184,7 @@
 
       
       
-      
+      <a-entity position="0 2.25 -15" particle-system="preset: dust; particleCount: 10000"></a-entity>
       
       
       
@@ -218,9 +228,19 @@
      <!--lighting-->
       
       
+      <a-entity
+        light="color: #8bacff; intensity: 3.71; angle:-100;"
+        position="-20 14.836 -21"
+        scale="2.3 1.2 2.1"
+      ></a-entity>
       
-      
-      
+       <a-entity
+        light="color: #8bacff; intensity: 4.71; angle:-100;"
+        position="6 10 -12"
+        scale="2.3 1.2 2.1"
+        rotation="0 175 0"
+          
+      ></a-entity>
       <a-entity
         light="color: #8bacff; intensity: 5.71; angle:49;"
         position="5.5 11.836 15"
