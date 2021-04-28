@@ -80,21 +80,49 @@
       </a-assets>
 
       <!--text-->
-
-      <a-entity
-        position="-12 7 8"
+      <a-asset-item
+        id="customFont"
+        src="https://cdn.aframe.io/fonts/Aileron-Semibold.fnt"
+      ></a-asset-item>
+     <!-- <a-entity
+        geometry="primitive: plane; width: 2; height: auto"
+        material="color:grey; transparent:true; opacity:.5;radius:0.05"
+        position="0 8 16"
         rotation="0 120 0"
         scale="8 8 8"
-        text="value: Year: 2550
-              
-              Earth has exceeded it carrying capacity for life, 20 billion individuals currently reside on the planet.
-              
-              The natural landscapes faded away after centuries of human disruption, making life on the ground no longer inhabitable.
-                
-              Humans spent decades engineering massive sky cities to escape the dying landscapes of earth."
-      ></a-entity>
+      >
+      </a-entity>-->
+      <a-asset-item
+        id="optimerBoldFont"
+        src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"
+      ></a-asset-item>
 
-      <!-- <a-entity
+      <a-mixin id="boldFont" text="font: #optimerBoldFont"></a-mixin>
+      <!-- text entity -->
+
+      <a-entity
+        text-geometry="value:Skytopia; font: #optimerBoldFont; bevelEnabled: true; 
+                             bevelSize: 0.05; 
+                             bevelThickness: 0.10; 
+                             size: 4; 
+                             height: 0.55; "
+        material="metalness:  0.5;  
+                        roughness:  0.25;  
+                      
+                        emissive:  #000000;  
+                        emissiveIntensity:  1;  
+                        metalnessTextureOffset:  [object Object];  
+                        normalScale:  [object Object];  
+                        offset:  [object Object];  
+                        opacity:  0.9  "
+        position="-12 4 13"
+        scale=".4 .4 .4"
+        rotation="0 120 0"
+        animation__position="property: object3D.position.y; to: 3.8;  dir: alternate; dur: 5700; loop:true "
+      ></a-entity>
+<!--
+
+   <a-entity
         position="-10 10 8"
         rotation="0 120 0"
         scale="10 10 10"
@@ -102,7 +130,14 @@
           bevelEnabled: true;
           bevelSize:20;
           bevelThickness: 20;
-          value: Year: 2550 ">
+          value: Year: 2550 Earth has exceeded its carrying capacity for life, 
+        20 billion individuals currently reside on the planet.
+                       
+        Natural landscapes faded away after centuries of human 
+        disruption,making life on the ground no longer inhabitable. 
+        
+        Humans spent decades engineering massive sky cities to 
+        escape the dying landscapes of earth.">
       </a-entity>-->
 
       <!-- sky  -->
@@ -125,8 +160,6 @@
         <a-curve-point position="0 1 -3"></a-curve-point>
       alongpath="curve: #track1; loop: true"
       </a-curve>-->
-      
-      
 
       <!--ship-->
 
@@ -176,14 +209,14 @@
         rotation="0 -265.3 0"
         obj-model="obj: #medcityobj; mtl: #medcitymtl"
         animation__position="property: object3D.position.y; to: 3.5; dir: alternate; dur: 17700; loop: true"
-      animation="property: rotation; to: 0 360 0; dir: alternate; dur:195000; easing:linear;loop:true"
-                >
+        animation="property: rotation; to: 0 360 0; dir: alternate; dur:195000; easing:linear;loop:true"
+      >
       </a-entity>
 
       <a-entity
         id="smallcity"
         shadow="receive: true"
-        position="17 -0.8 2.2"
+        position="35 -0.8 2.2"
         scale="5 5 5"
         rotation="0 15 -1"
         obj-model="obj: #smallcityobj; mtl: #smallcitymtl"
@@ -200,7 +233,7 @@
         obj-model="obj: #smallcityobj; mtl: #smallcitymtl"
         animation__position="property: object3D.position.y; to: .2; dir: alternate; dur: 5700; loop: true"
         animation="property: rotation; to: 0 360 0; dir: alternate; dur:195000; easing:linear;loop:true"
-                >
+      >
       </a-entity>
 
       <a-entity
